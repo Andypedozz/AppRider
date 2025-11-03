@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0078ff">
+    <title>PWA</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="client/dist/assets/index-Dk-GD17r.css">
+</head>
+<body>
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("/service-worker.js")
+            .then(() => console.log("Service Worker registrato!"))
+            .catch(err => console.error("SW error", err));
+        }
+        </script>
+    <div id="root"></div>
+    <script src="/client/dist/assets/index-gqOkbWPL.js"></script>
+</body>
+</html>
