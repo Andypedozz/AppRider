@@ -3,11 +3,32 @@ import { useState } from "react"
 import Overlay from "./components/Overlay"
 import TopBar from "./components/TopBar"
 import { Calendar, Clock, FileText, HelpCircle, List, Package, Settings, Upload, User } from "lucide-react"
+import Profilo from "./pages/Profilo"
+import DaAssegnare from "./pages/DaAssegnare"
+import InOut from "./pages/InOut"
+import InConsegna from "./pages/InConsegna"
+import Impostazioni from "./pages/Impostazioni"
+import Consegnati from "./pages/Consegnati"
+import DaRitirare from "./pages/DaRitirare"
+import Guida from "./pages/Guida"
+import InAttesa from "./pages/InAttesa"
 
 function App() {
 
 	const [open, setOpen] = useState(false)
 	const [page, setPage] = useState("Ordini consegnati oggi")
+
+	const pages = {
+		"Profilo" : <Profilo />,
+		"In/Out" : <InOut />,
+		"Ordini consegnati oggi" : <Consegnati />,
+		"Da assegnare" : <DaAssegnare />,
+		"In consegna" : <InConsegna />,
+		"Da ritirare" : <DaRitirare />,
+		"In attesa" : <InAttesa />,
+		"Impostazioni" : <Impostazioni />,
+		"Guida" : <Guida />
+	}
 
 	const menuItems = [
 		{ icon: <User className="w-5 h-5" />, label: "Profilo" },
@@ -27,7 +48,8 @@ function App() {
 			<Overlay open={open} setOpen={setOpen}/>
 			<TopBar setOpen={setOpen} title={page}/>
 			{/* Content */}
-			<main className="flex-1 flex items-center justify-center p-6">
+			<main className="p-6">
+				{pages[page]}
 			</main>
 		</div>
 	)
